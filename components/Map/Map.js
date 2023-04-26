@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 // import { useStaticQuery, graphql } from 'gatsby';
-import useViewportSizes from 'use-viewport-sizes';
+
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import RegionInfo from './RegionInfo.js';
@@ -9,9 +9,11 @@ import MapRegions from './hih-regions_MAP.js';
 import RegionSelect from './RegionSelect.js';
 import { media } from '../theme.js';
 import useSiteContext from '../SiteContext.js';
+import useWindowSize from '@/utils/hooks.js';
 
 const Map = () => {
-  const [vW, vH, updateVpSizes] = useViewportSizes();
+  // const [vW, vH, updateVpSizes] = useViewportSizes();
+  const [vW] = useWindowSize();
   const mobile = vW < 768;
 
   const width = mobile ? 400 : 500;

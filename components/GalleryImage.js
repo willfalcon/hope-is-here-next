@@ -14,7 +14,7 @@ const GalleryImage = ({ caption, image, filename = null, width, setModal }) => {
   const fullSrc = urlFor(image.image).url();
   const [fetching, setFetching] = useState(false);
   const [error, setError] = useState(null);
-  console.log(error);
+
   useEffect(() => {
     if (width) {
       const roundedWidth = roundToNearest(width, 100);

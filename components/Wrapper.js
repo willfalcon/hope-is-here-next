@@ -10,17 +10,13 @@ import Header from './Header';
 import { SiteContextProvider } from './SiteContext';
 import theme, { media } from './theme';
 import GlobalStyle from './GlobalStyle';
+import useWindowSize from '@/utils/hooks';
 
 const Wrapper = props => {
   const { home = false, children, className, data, location, site } = props;
 
-  const [, height, updateVpSizes] = useViewportSizes();
-
-  useEffect(() => {
-    if (!height) {
-      updateVpSizes();
-    }
-  }, []);
+  // const [, height, updateVpSizes] = useViewportSizes();
+  const [, height] = useWindowSize();
 
   return (
     <ThemeProvider theme={theme}>

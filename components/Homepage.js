@@ -4,7 +4,6 @@ import Content from './Content';
 import { media } from './theme';
 
 export default function HomePage(props) {
-  console.log(props);
   return (
     <StyledHomepage className="homepage">
       <Image className="homepage__background" src="/collage.jpg" alt="" width={2000} height={1200} />
@@ -15,6 +14,9 @@ export default function HomePage(props) {
 
 const StyledHomepage = styled.div`
   padding: 2rem;
+  ${media.break`
+    padding: 0;
+  `}
   .homepage {
     &__background {
       position: absolute;
@@ -22,6 +24,10 @@ const StyledHomepage = styled.div`
       object-fit: cover;
       top: 70px;
       left: 0;
+      ${media.break`
+        position: static;
+
+      `}
     }
     &__content {
       max-width: 100%;

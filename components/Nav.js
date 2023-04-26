@@ -7,10 +7,9 @@ import useSiteContext from './SiteContext';
 
 const Nav = ({ navOpen }) => {
   const { mainMenu } = useSiteContext();
-
   return (
     <StyledNav className="header-nav" open={navOpen}>
-      {mainMenu.map(item => {
+      {mainMenu?.map(item => {
         if (item.externalUrl) {
           return (
             <a className="menu-item external-link" key={item._key} href={item.externalUrl} target="_blank" rel="noreferrer">
