@@ -6,7 +6,7 @@ import { media } from './theme';
 export default function HomePage(props) {
   return (
     <StyledHomepage className="homepage">
-      <Image className="homepage__background" src="/collage.jpg" alt="" width={2000} height={1200} />
+      <Image className="homepage__background" src="/collage2.jpg" alt="" width={2000} height={1200} />
       <Content className="homepage__content">{props.content}</Content>
     </StyledHomepage>
   );
