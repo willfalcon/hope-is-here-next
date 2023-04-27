@@ -30,7 +30,7 @@ const StyledHomepage = styled.div`
         position: absolute;
         top: 80px;
         width: 100%;
-        height: 100%;
+        height: auto;
 
       `}
     }
