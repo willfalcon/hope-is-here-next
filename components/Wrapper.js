@@ -28,7 +28,7 @@ const Wrapper = props => {
           alt=""
           src="https://insight.adsrvr.org/track/pxl/?adv=b9zgc1x&ct=0:5x6qgs7&fmt=3"
         />
-        <SiteWrapper height={height} className={classNames('site-wrapper', className)}>
+        <SiteWrapper height={height} className={classNames('site-wrapper', className)} home={home}>
           {/* <Meta {...data?.sanityPage} {...data?.sanityHome} home={home} location={location} /> */}
           <Header />
           <PageContainer className="page-container">{children}</PageContainer>
@@ -45,7 +45,9 @@ const PageContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   /* padding: 0 0.5rem; */
-  padding-bottom: 90px;
+  /* padding-bottom: 90px; */
+  height: 100%;
+  width: 100%;
   aside {
     .button {
       display: block;
@@ -55,7 +57,15 @@ const PageContainer = styled.div`
   }
 `;
 
-const SiteWrapper = styled.div``;
+const SiteWrapper = styled.div`
+  ${({ home }) =>
+    home &&
+    `
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  `}
+`;
 
 export const site = `
   "site": *[_type == "headerSettings"][0] {

@@ -16,6 +16,8 @@ const StyledHomepage = styled.div`
   padding: 2rem;
   ${media.break`
     padding: 0;
+    height: 100%;
+    overflow: hidden;
   `}
   .homepage {
     &__background {
@@ -25,7 +27,10 @@ const StyledHomepage = styled.div`
       top: 70px;
       left: 0;
       ${media.break`
-        position: static;
+        position: absolute;
+        top: 80px;
+        width: 100%;
+        height: 100%;
 
       `}
     }

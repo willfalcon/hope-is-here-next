@@ -6,7 +6,7 @@ import groq from 'groq';
 
 export default function Home({ site, page }) {
   return (
-    <Wrapper site={site}>
+    <Wrapper site={site} home>
       <HomePage {...page} />
     </Wrapper>
   );
