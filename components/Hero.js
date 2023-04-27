@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const Hero = ({ title, image, heading, text, backgroundColor }) => {
   const src = urlFor(image).url();
-
+  console.log(image);
   return (
     <StyledHero className="hero" color={backgroundColor?.hex || theme.purple}>
       <Image
@@ -18,6 +18,8 @@ const Hero = ({ title, image, heading, text, backgroundColor }) => {
         alt={image.alt}
         width={image.asset.metadata.dimensions.width}
         height={image.asset.metadata.dimensions.height}
+        placeholder="blur"
+        blurDataURL={image.asset.metadata.lqip}
       />
       <h1 className="hero__heading">{heading || title}</h1>
       {text && <Content className="hero__text">{text}</Content>}
@@ -40,6 +42,7 @@ const StyledHero = styled.div`
     color: white;
     width: 100%;
     padding-top: 15rem;
+    margin-bottom: 2rem;
     &::before {
       content: '';
       width: 100%;

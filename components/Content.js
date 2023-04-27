@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Link } from 'gatsby';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import { PortableText } from '@portabletext/react';
 import classNames from 'classnames';
@@ -11,10 +12,14 @@ import { media } from './theme';
 
 import Button from './Button';
 import Agenda from './Agenda';
-import Map from './Map/Map';
+// import Map from './Map/Map';
 import Gallery from './Gallery';
 import { urlFor } from '@/utils/client';
 import Image from 'next/image';
+
+const Map = dynamic(() => import('./Map/Map'), {
+  ssr: false,
+});
 
 export const body = groq`
   ...,

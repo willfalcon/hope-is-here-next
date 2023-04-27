@@ -12,17 +12,13 @@ import useSiteContext from '../SiteContext.js';
 import useWindowSize from '@/utils/hooks.js';
 
 const Map = () => {
-  // const [vW, vH, updateVpSizes] = useViewportSizes();
   const [vW] = useWindowSize();
   const mobile = vW < 768;
 
-  const width = mobile ? 400 : 500;
+  const width = mobile ? vW - 20 : 500;
   const aspect = 250 / 427;
   const height = width / aspect;
 
-  // a = w / h
-  // ah = w
-  // h = w / a
   const [active, setActive] = useState(null);
 
   useEffect(() => {
@@ -31,31 +27,9 @@ const Map = () => {
     }
   }, [mobile]);
 
-  // const {
-  //   allSanityMapRegion: { edges: regionNodes },
-  // } = useStaticQuery(graphql`
-  //   {
-  //     allSanityMapRegion(sort: { fields: region }) {
-  //       edges {
-  //         node {
-  //           id
-  //           label
-  //           listItems
-  //           phone
-  //           region
-  //           website
-  //           offset
-  //           color {
-  //             hex
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
-  // const regions = regionNodes.map(region => ({ ...region.node }));
   const { regions } = useSiteContext();
+
+  console.log(regions);
 
   return (
     <MapContainer className="map-container">
@@ -78,11 +52,6 @@ const Map = () => {
           </CSSTransition>
         </TransitionGroup>
       )}
-      {/* <InfoBoxes className="info-boxes">
-        {regions.map(region => (
-          <RegionInfo key={region.id} {...region} active={active} />
-        ))}
-      </InfoBoxes> */}
 
       <RegionSelect regions={regions} setActive={setActive} />
     </MapContainer>
@@ -110,10 +79,11 @@ const MapContainer = styled.div`
     color: #18527d;
     text-transform: uppercase;
     grid-row: 1 / 2;
-    grid-column: 1 / 2;
+    grid-column: 1 / 3;
     ${media.break`
-      text-align: left;
+      /* text-align: left; */
       font-size: 3rem;
+    
     `}
   }
 
@@ -121,7 +91,7 @@ const MapContainer = styled.div`
     display: grid;
     width: 900px;
     margin: 0 auto;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 500px 1fr;
     grid-template-rows: auto 1fr;
     
   `}
@@ -136,8 +106,8 @@ const MapStyles = styled.div`
   height: ${({ height }) => height + 20}px;
   width: ${({ width }) => width}px;
   margin-bottom: -18rem;
-  grid-row: 1 / 3;
-  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
   svg {
     position: absolute;
     width: ${({ width }) => width}px;

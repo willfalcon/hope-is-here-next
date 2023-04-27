@@ -100,6 +100,7 @@ const InfoBox = styled.div`
       /* margin: 0; */
       /* padding: 0; */
       padding-left: 2rem;
+      columns: 2;
       li {
         color: ${({ theme }) => theme.purple};
       }

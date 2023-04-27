@@ -85,7 +85,7 @@ export const site = `
       }
     }
   },
-  "regions": *[_type == "mapRegion"] {
+  "regions": *[_type == "mapRegion"] | order(region asc) {
     ...
   }
 `;
