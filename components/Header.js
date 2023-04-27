@@ -21,10 +21,9 @@ const Header = () => {
     <StyledHeader className="header">
       <StyledDMHLogo className="header__logo dmh-logo" href="/">
         {/* <GatsbyImage className="dmh" image={getImage(whiteDMH)} alt="DMH Logo" /> */}
-        <img className="dmh" src="/dmh.png" alt="DMH Logo" />
-        <img className="wordmark" src="/mdmh-wordmark.png" alt="Mississippi Department of Mental Health" />
+        <img className="dmh" src="/dmh-h.png" alt="DMH Logo" />
 
-        <img className="mobile-logo" src="/white_dmh_logo.png" alt="Mississippi Department of Mental Health" />
+        <img className="mobile-logo" src="/dmh-stack.png" alt="DMH Logo" />
       </StyledDMHLogo>
 
       <div className="header__nav-wrap">
@@ -78,8 +77,8 @@ const StyledHeader = styled.header`
       grid-area: logo;
       width: 100%;
       .dmh {
-        flex: 0 1 200px;
-        max-width: 200px;
+        flex: 0 1 500px;
+        max-width: 500px;
         display: none;
       }
       .wordmark {

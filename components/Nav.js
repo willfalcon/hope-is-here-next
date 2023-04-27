@@ -46,7 +46,7 @@ const StyledNav = styled.nav`
   transform: ${({ open }) => (open ? `translateY(0)` : `translateY(-150%)`)};
   transform: ${({ open }) => (open ? `translateY(0)` : `translateY(calc(-100% - 120px))`)};
   ${media.break`
-    top: 120px;
+    top: 80px;
     padding-top: 2rem;
   `}
   .menu-item {
