@@ -8,7 +8,7 @@ const Page = ({ title, content, hero }) => {
   return (
     <>
       {hero?.image ? <Hero {...hero} title={title} /> : <PageTitle className="page-title">{title}</PageTitle>}
-      <StyledPage>{content && <Content>{content}</Content>}</StyledPage>;
+      <StyledPage>{content && <Content>{content}</Content>}</StyledPage>
     </>
   );
 };
