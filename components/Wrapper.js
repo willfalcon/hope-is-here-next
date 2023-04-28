@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import useViewportSizes from 'use-viewport-sizes';
 
-// import Meta from './Meta';
+import Meta from './Meta';
 import Header from './Header';
 
 import { SiteContextProvider } from './SiteContext';
@@ -13,8 +13,7 @@ import GlobalStyle from './GlobalStyle';
 import useWindowSize from '@/utils/hooks';
 
 const Wrapper = props => {
-  const { home = false, children, className, data, location, site } = props;
-
+  const { home = false, children, className, site, meta, seo, title } = props;
   // const [, height, updateVpSizes] = useViewportSizes();
   const [, height] = useWindowSize();
 
@@ -30,6 +29,7 @@ const Wrapper = props => {
         />
         <SiteWrapper height={height} className={classNames('site-wrapper', className)} home={home}>
           {/* <Meta {...data?.sanityPage} {...data?.sanityHome} home={home} location={location} /> */}
+          <Meta home={home} {...meta} seo={seo} title={title} />
           <Header />
           <PageContainer className="page-container">{children}</PageContainer>
           <GlobalStyle />
@@ -84,6 +84,10 @@ export const site = `
         "slug": slug.current
       }
     }
+  },
+  "meta": *[_type == "siteSettings"][0] {
+    customCSS,
+    siteName
   },
   "regions": *[_type == "mapRegion"] | order(region asc) {
     ...

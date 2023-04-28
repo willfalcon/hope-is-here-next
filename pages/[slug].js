@@ -4,9 +4,9 @@ import Wrapper, { site } from '@/components/Wrapper';
 import client from '@/utils/client';
 import groq from 'groq';
 
-export default function page({ site, page, regions }) {
+export default function page({ site, page, regions, meta }) {
   return (
-    <Wrapper site={{ ...site, regions }}>
+    <Wrapper site={{ ...site, regions }} seo={page.seoSettings} title={page.title} meta={meta}>
       <Page {...page} />
     </Wrapper>
   );
@@ -46,6 +46,10 @@ export async function getStaticProps(context) {
       },
       content[] {
         ${body}
+      },
+      seoSettings {
+        title,
+        metaDescription
       }
     }
   }`,

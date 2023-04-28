@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const Hero = ({ title, image, heading, text, backgroundColor }) => {
   const src = urlFor(image).url();
-  console.log(image);
+
   return (
     <StyledHero className="hero" color={backgroundColor?.hex || theme.purple}>
       <Image

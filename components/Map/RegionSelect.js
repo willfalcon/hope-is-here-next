@@ -9,7 +9,7 @@ const RegionSelect = ({ regions, setActive }) => {
       <RegionSelectorList className="region-selector-list">
         {regions.map(region => {
           return (
-            <li className="region-select" key={region.id} style={{ backgroundColor: region.color.hex }}>
+            <li className="region-select" key={region._id} style={{ backgroundColor: region.color.hex }}>
               <button className="region-select__button" onClick={() => setActive(region.region)}>
                 <span>{region.region}</span>
               </button>

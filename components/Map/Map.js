@@ -29,8 +29,6 @@ const Map = () => {
 
   const { regions } = useSiteContext();
 
-  console.log(regions);
-
   return (
     <MapContainer className="map-container">
       <h3 className="map-heading">Community Health Centers Map</h3>
