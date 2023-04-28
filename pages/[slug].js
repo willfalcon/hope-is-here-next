@@ -6,7 +6,7 @@ import groq from 'groq';
 
 export default function page({ site, page, regions, meta }) {
   return (
-    <Wrapper site={{ ...site, regions }} seo={page.seoSettings} title={page.title} meta={meta}>
+    <Wrapper site={{ ...site, regions }} seo={page?.seoSettings} title={page?.title} meta={meta}>
       <Page {...page} />
     </Wrapper>
   );

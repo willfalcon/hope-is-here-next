@@ -11,7 +11,7 @@ export default function Meta(props) {
 
   return (
     <Head>
-      <style>{customCSS.code}</style>
+      {customCSS?.code && <style>{customCSS.code}</style>}
       <meta property="og:title" content={titleTag} />
       <meta property="og:url" content={openUrl} />
       <title>{`${!home ? `${titleTag} | ` : ''}${siteName}`}</title>
