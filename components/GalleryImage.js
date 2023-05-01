@@ -12,6 +12,7 @@ const roundToNearest = (num, multiple) => {
 const GalleryImage = ({ caption, image, filename = null, width, setModal }) => {
   const [src, setSrc] = useState(null);
   const fullSrc = urlFor(image.image).url();
+
   const [fetching, setFetching] = useState(false);
   const [error, setError] = useState(null);
 

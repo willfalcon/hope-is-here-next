@@ -26,7 +26,7 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           {/* Google tag (gtag.js) */}
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}></script>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -37,7 +37,7 @@ export default class MyDocument extends Document {
             gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
             `,
             }}
-          ></script>
+          />
 
           <link rel="stylesheet" href="https://use.typekit.net/vhw0tjq.css" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

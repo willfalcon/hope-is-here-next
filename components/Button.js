@@ -2,13 +2,18 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import classNames from 'classnames';
 import { darken } from 'polished';
+import Link from 'next/link';
 // import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
-const Button = ({ className, url, text, buttonId, newWindow }) => {
+const Button = ({ className, link, url, text, buttonId, newWindow }) => {
   return newWindow ? (
     <StyledOutboundLink className={classNames(className, 'button')} href={url} id={buttonId} target="_blank" rel="noopener">
       {text}
     </StyledOutboundLink>
+  ) : link ? (
+    <StyledLink className={classNames(className, 'button')} href={`/${link.slug}`} id={buttonId}>
+      {text}
+    </StyledLink>
   ) : (
     <StyledButton className={classNames(className, 'button')} href={url} id={buttonId}>
       {text}
@@ -38,6 +43,10 @@ const StyledOutboundLink = styled.a`
 `;
 
 const StyledButton = styled.a`
+  ${buttonStyles}
+`;
+
+const StyledLink = styled(Link)`
   ${buttonStyles}
 `;
 

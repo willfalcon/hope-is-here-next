@@ -26,7 +26,17 @@ export const body = groq`
   link->{
     "slug": slug.current
   },
-  asset->{...}
+  asset->{...},
+  images[] {
+    ...,
+    image {
+      ...,
+      image {
+        ...,
+        asset->{...}
+      }
+    }
+  }
 `;
 
 const customSerializers = {

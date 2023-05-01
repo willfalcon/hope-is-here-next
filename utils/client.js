@@ -8,7 +8,14 @@ const client = createClient({
   apiVersion: '2022-11-21',
 });
 
-const builder = imageUrlBuilder(client);
+const imageClient = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
+  apiVersion: '2022-11-21',
+});
+
+const builder = imageUrlBuilder(imageClient);
 function urlFor(source) {
   return builder.image(source);
 }
